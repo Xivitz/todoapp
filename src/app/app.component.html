@@ -1,11 +1,12 @@
 <h1 class="title animated jackInTheBox">{{ title }}</h1>
 <ul class="animated flipInX" *ngIf="mode=='list'">
-    <p *ngIf="todos.length==0"><small>Ainda não há tarefas para hoje!</small></p>
+    <p class="text-center" *ngIf="todos.length==0"><small>Ainda não há tarefas para hoje!</small></p>
     <li *ngFor="let todo of todos">
-        {{ todo.title }} |
-        <button *ngIf="!todo.done" (click)="markAsDone(todo)">Concluir</button> |
-        <button *ngIf="todo.done" (click)="markAsUnDone(todo)">Refazer</button> |
-        <button (click)="remove(todo)">Remover</button>
+        {{ todo.title }}
+        <button *ngIf="!todo.done" (click)="markAsDone(todo)">Concluir</button>
+        <button *ngIf="todo.done" (click)="markAsUnDone(todo)"><i class="fas fa-check-circle">Refazer</i></button>
+        <button (click)="remove(todo)"><i class="fa fa-trash-alt">Excluir</i></button>
+        <!-- <i class="far fa-check-circle"></i> -->
     </li>
 </ul>
 
